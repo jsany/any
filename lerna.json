@@ -1,0 +1,21 @@
+{
+  "command": {
+    "bootstrap": {
+      "hoist": true
+    },
+    "version": {
+      "allowBranch": ["master"],
+      "conventionalCommits": true
+    },
+    "publish": {
+      "verifyAccess": false,
+      "registry": "http://npm.jsany.org"
+    }
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "ignoreChanges": [
+    "**/*.md"
+  ],
+  "version": "independent"
+}

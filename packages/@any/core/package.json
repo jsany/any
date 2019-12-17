@@ -1,0 +1,11 @@
+{
+  "name": "@jsany/core",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": ["core", "jsany"],
+  "main": "lib/index.js",
+  "browserslist": [">1%"],
+  "engines": {
+    "node": ">=8.6"
+  }
+}

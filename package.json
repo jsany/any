@@ -1,0 +1,61 @@
+{
+  "name": "root",
+  "private": true,
+  "description": "monorepo",
+  "workspaces": [
+    "packages/@any/*",
+    "packages/any",
+    "packages/docs"
+  ],
+  "scripts": {
+    "ci": "lerna run lint && lerna run compile && npm run cov",
+    "clean": "lerna clean && rimraf node_modules",
+    "cov": "jest --coverage",
+    "lint": "eslint packages/ --quiet --ext ts",
+    "test": "jest packages/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "package.json": [
+      "sort-package-json",
+      "git add"
+    ],
+    "packages/**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "lerna": "^3.18.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-lerna-scopes": "^8.2.0",
+    "@types/chai": "^4.2.6",
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.14",
+    "@types/rimraf": "^2.0.3",
+    "@typescript-eslint/eslint-plugin": "^2.10.0",
+    "@typescript-eslint/parser": "^2.10.0",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
+    "nyc": "^14.1.1",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "sort-package-json": "^1.24.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.2"
+  }
+}
