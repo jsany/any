@@ -9,6 +9,7 @@ yarn.lock
 TODOs.md
 .github
 .idea
+.env
 
 # CI related
 scripts

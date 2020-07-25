@@ -1,0 +1,28 @@
+{
+  "githubToken": "",
+  "localTemplates": [],
+  "remoteTemplates": [
+    {
+      "repository": "",
+      "type": "github",
+      "owner": "jsany",
+      "direct": "",
+      "name": "template-lerna",
+      "message": "多包工程"
+    }
+  ],
+  "npmDependeniesInstall": {
+    "auto": true,
+    "silent": false,
+    "npmClient": "npm"
+  },
+  "git": {
+    "init": true,
+    "firstCommit": ""
+  },
+  "editorOpen": {
+    "name": "vscode",
+    "command": "code",
+    "enable": false
+  }
+}

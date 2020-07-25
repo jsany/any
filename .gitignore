@@ -3,13 +3,20 @@
 .*
 !.*ignore
 !.*rc
+!.*rc.*
 !.gitattributes
 !.aoneci.yml
 !.editorconfig
+!.github
 
 # Logs
 logs
 *.log*
+
+## OS
+.DS_Store
+.idea
+.vscode
 
 # Runtime data
 pids
@@ -31,6 +38,7 @@ jspm_packages/
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 lib
+es
 dist
 
 # TypeScript v1 declaration files
@@ -40,3 +48,7 @@ dist
 
 yarn.lock
 lerna-debug.log
+package-lock.json
+
+# environment variables
+.env

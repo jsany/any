@@ -1,0 +1,31 @@
+{
+  "name": "@jsany/2md",
+  "version": "1.0.0",
+  "description": "one tool of insert any file to md",
+  "keywords": ["markdown", "md", "file", "insert"],
+  "homepage": "https://github.com/jsany/any/tree/main/packages/2md#readme",
+  "bugs": {
+    "url": "https://github.com/jsany/any/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsany/any.git"
+  },
+  "license": "MIT",
+  "author": "Mr-jiangzhiguo <jiangzhiguo2010@qq.com>",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": ["lib"],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@jsany/shared-utils": "^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

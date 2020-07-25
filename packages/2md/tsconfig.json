@@ -2,14 +2,23 @@
   "compilerOptions": {
     "target": "ES5",
     "module": "CommonJS",
-    "lib": ["ES5","ES6", "DOM", "DOM.Iterable", "ScriptHost", "ES2016.Array.Include", "ES2017.String"],
+    "lib": [
+      "ES5",
+      "ES6",
+      "DOM",
+      "DOM.Iterable",
+      "ScriptHost",
+      "ES2016.Array.Include",
+      "ES2017.String"
+    ],
     "outDir": "lib",
     "strict": true,
     "moduleResolution": "node",
     "declaration": true,
     "baseUrl": ".",
     "paths": {
-      "@jsany/*": ["./packages/*"]
+      "@/*": ["./src/*"], // src 目录别名
+      "@~/*": ["./*"] // 根目录别名
     },
     "pretty": true,
     "esModuleInterop": true,
@@ -18,6 +27,5 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true
   },
-  "files": ["./typings/index.d.ts"],
   "exclude": ["node_modules", "**/test/*", "**/*.spec.ts", "lib", "es", "dist"]
 }

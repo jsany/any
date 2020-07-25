@@ -3,13 +3,18 @@
     "bootstrap": {
       "hoist": true
     },
+    "create": {
+      "access": "public"
+    },
     "version": {
-      "allowBranch": ["master"],
-      "conventionalCommits": true
+      "allowBranch": ["main"],
+      "conventionalCommits": true,
+      "createRelease": "github",
+      "message": "Release: %s :tada: :rocket:"
     },
     "publish": {
       "verifyAccess": false,
-      "registry": "http://npm.jsany.org"
+      "registry": "https://registry.npmjs.org/"
     }
   },
   "npmClient": "yarn",

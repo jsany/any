@@ -1,16 +1,17 @@
 {
   "name": "root",
   "private": true,
-  "description": "monorepo",
+  "description": "> TODO:",
+  "sideEffects": false,
   "workspaces": [
-    "packages/@any/*",
-    "packages/any",
-    "packages/docs"
+    "packages/*"
   ],
   "scripts": {
-    "ci": "lerna run lint && lerna run compile && npm run cov",
-    "clean": "lerna clean && rimraf node_modules",
-    "cov": "jest --coverage",
+    "build": "father-build",
+    "build:cli": "PACKAGE=cli father-build",
+    "build:utils": "PACKAGE=shared-utils father-build",
+    "clean": "lerna clean && rimraf node_modules yarn.lock",
+    "cov": "nyc jest",
     "lint": "eslint packages/ --quiet --ext ts",
     "test": "jest packages/"
   },
@@ -22,40 +23,37 @@
   },
   "lint-staged": {
     "package.json": [
-      "sort-package-json",
-      "git add"
+      "sort-package-json"
     ],
     "packages/**/*.{js,jsx,tsx,ts,less,md,json}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "dependencies": {
-    "lerna": "^3.18.3"
+    "@babel/runtime": "^7.10.5",
+    "lerna": "^3.22.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-lerna-scopes": "^8.2.0",
-    "@types/chai": "^4.2.6",
-    "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.14",
-    "@types/rimraf": "^2.0.3",
-    "@typescript-eslint/eslint-plugin": "^2.10.0",
-    "@typescript-eslint/parser": "^2.10.0",
-    "eslint": "^6.7.2",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-react-hooks": "^2.3.0",
-    "husky": "^3.1.0",
-    "jest": "^24.9.0",
-    "lint-staged": "^9.5.0",
-    "nyc": "^14.1.1",
-    "prettier": "^1.19.1",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-lerna-scopes": "^9.1.1",
+    "@types/jest": "^26.0.5",
+    "@types/node": "^14.0.24",
+    "@types/rimraf": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@typescript-eslint/parser": "^3.6.1",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "eslint": "^7.4.0",
+    "eslint-config-alloy": "^3.7.3",
+    "eslint-plugin-react": "^7.20.3",
+    "father-build": "^1.18.1",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
+    "nyc": "^15.1.0",
+    "prettier": "^2.0.5",
     "rimraf": "^3.0.0",
     "sort-package-json": "^1.24.0",
-    "ts-jest": "^24.2.0",
-    "typescript": "^3.7.2"
+    "ts-jest": "^26.1.3",
+    "typescript": "^3.9.7"
   }
 }
