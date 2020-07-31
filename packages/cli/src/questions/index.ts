@@ -1,3 +1,5 @@
+import anycliConfig from '@~/.anyclirc.json';
+
 export const getCommonCreateQuestions = (projectName: string) => [
   {
     name: 'isPrivate',
@@ -7,7 +9,7 @@ export const getCommonCreateQuestions = (projectName: string) => [
     required: true
   },
   {
-    name: ': string',
+    name: 'projectName',
     message: '输入 package.json:name 名称，默认当前项目名',
     type: 'input',
     initial: projectName,
@@ -24,7 +26,7 @@ export const getCommonCreateQuestions = (projectName: string) => [
     name: 'projectDescription',
     message: '输入项目介绍，默认空',
     type: 'input',
-    initial: '',
+    initial: 'TODO:',
     required: false
   }
 ];
@@ -41,10 +43,35 @@ export const checkDirQuestions = [
 
 export const templateQuestions = [
   {
-    name: 'selectTemplate',
-    message: '请选择模版',
+    name: 'template',
+    message: '请选择本地/远程模版',
     type: 'select',
-    choices: [{ name: 'template-lerna', message: '多包工程' }],
+    choices: [
+      { name: 'local', message: '本地模版(local)' },
+      { name: 'remote', message: '远程模版(remote)' }
+    ],
+    initial: 0,
+    required: true
+  }
+];
+
+export const templateLocalQuestions = [
+  {
+    name: 'templateRepo',
+    message: '请选择本地模版',
+    type: 'select',
+    choices: anycliConfig.localTemplates,
+    initial: 0,
+    required: true
+  }
+];
+
+export const templateRemoteQuestions = [
+  {
+    name: 'templateRepo',
+    message: '请选择远程模版',
+    type: 'select',
+    choices: anycliConfig.remoteTemplates,
     initial: 0,
     required: true
   }

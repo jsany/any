@@ -14,15 +14,15 @@
   "license": "MIT",
   "author": "Mr-jiangzhiguo <jiangzhiguo2010@qq.com>",
   "main": "lib/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+  "bin": {
+    "any-cli": "bin/index.js"
   },
-  "files": ["lib"],
+  "files": ["lib", ".anyclirc.json", "templates"],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@babel/runtime": "^7.10.5",
     "cac": "^6.5.10",
     "chalk": "^4.1.0",
     "clipboardy": "^2.3.0",
@@ -44,7 +44,11 @@
     "@types/metalsmith": "^2.3.0",
     "@types/node": "^14.0.14",
     "@types/semver": "^7.3.1",
-    "@types/update-notifier": "^4.1.0"
+    "@types/update-notifier": "^4.1.0",
+    "babel-plugin-module-resolver": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=10"
   },
   "publishConfig": {
     "access": "public"

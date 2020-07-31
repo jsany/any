@@ -1,7 +1,7 @@
 import updateNotifier from 'update-notifier';
 import checkEnv from '@/utils/checkEnv';
 import { CLI } from '@/utils/cac';
-import handleRegister from '@/cmd/registerCoreCmd';
+import handleRegister from '@/registerCoreCmd';
 import pkg from '@~/package.json';
 import { CAC } from 'cac';
 

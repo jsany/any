@@ -14,10 +14,6 @@
   "license": "MIT",
   "author": "Mr-jiangzhiguo <jiangzhiguo2010@qq.com>",
   "main": "lib/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
   "files": ["lib"],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -26,6 +22,7 @@
     "@babel/runtime": "^7.10.5"
   },
   "devDependencies": {
+    "babel-plugin-module-resolver": "^4.0.0",
     "globby": "^11.0.1"
   },
   "publishConfig": {

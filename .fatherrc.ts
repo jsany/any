@@ -15,7 +15,19 @@ const options: IBundleOptions = {
   cjs: { type: 'babel', lazy: true },
   pkgs: [...headPkgs, ...nromalPkgs],
   runtimeHelpers: true,
-  extraBabelPlugins: [['transform-remove-console', { exclude: ['error', 'warn'] }]]
+  extraBabelPlugins: [
+    ['transform-remove-console', { exclude: ['error', 'warn', 'info'] }],
+    [
+      'module-resolver',
+      {
+        root: ['.'],
+        alias: {
+          '@': './src',
+          '@~': './'
+        }
+      }
+    ]
+  ]
 };
 
 export default options;

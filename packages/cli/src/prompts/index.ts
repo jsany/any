@@ -1,6 +1,12 @@
 import enquirer from 'enquirer';
 import message from '@/utils/message';
-import { getCommonCreateQuestions, checkDirQuestions, templateQuestions } from '@/questions';
+import {
+  getCommonCreateQuestions,
+  checkDirQuestions,
+  templateQuestions,
+  templateRemoteQuestions,
+  templateLocalQuestions
+} from '@/questions';
 
 export const getAnswersCreate = async (): Promise<any> => {
   try {
@@ -17,7 +23,27 @@ export const getAnswersTemplate = async (): Promise<any> => {
     const answers = await enquirer.prompt(templateQuestions);
     return answers;
   } catch (error) {
-    error && message.error(`选择模版异常：${error}`);
+    error && message.error(`选择本地/远程模版异常：${error}`);
+    process.exit(1);
+  }
+};
+
+export const getAnswersLocalTemplate = async (): Promise<any> => {
+  try {
+    const answers = await enquirer.prompt(templateLocalQuestions);
+    return answers;
+  } catch (error) {
+    error && message.error(`选择本地模版异常：${error}`);
+    process.exit(1);
+  }
+};
+
+export const getAnswersRemoteTemplate = async (): Promise<any> => {
+  try {
+    const answers = await enquirer.prompt(templateRemoteQuestions);
+    return answers;
+  } catch (error) {
+    error && message.error(`选择远程模版异常：${error}`);
     process.exit(1);
   }
 };

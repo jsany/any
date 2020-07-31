@@ -20,6 +20,7 @@ site/vendor
 
 ## Built-files
 .cache
-/dist
-/lib
-/es
+**/dist/**/*
+**/lib/**/*
+**/es/**/*
+**/templates/**/*
