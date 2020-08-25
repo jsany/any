@@ -1,7 +1,7 @@
 import { ALLOWED_CONFIG } from '../const/config';
 import { resolve } from 'path';
 import { existsSync } from 'fs';
-import defaultConfig from '../template/.2mdrc';
+import defaultConfig from '../templates/2mdrc';
 export default (cwd?: string) => {
   if (!cwd) cwd = process.cwd();
 

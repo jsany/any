@@ -1,11 +1,12 @@
 import message from '@/utils/message';
-import anyConfig from '@~/.anyclirc.json';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import ora from 'ora';
+const { anycliConfig } = require('@~/scripts/getConfig');
 
 const execWait = promisify(exec);
-const { bootstrap, localTemplates, remoteTemplates } = anyConfig;
+// @ts-ignore
+const { bootstrap, localTemplates, remoteTemplates } = anycliConfig;
 
 export default async (type: 'local' | 'remote', current: string): Promise<any> => {
   try {
@@ -19,7 +20,7 @@ export default async (type: 'local' | 'remote', current: string): Promise<any> =
     }
     // console.info(bootstrap)
     // 执行 npm 命令，例如 安装依赖
-    for (const cmd of bootstrap.npm) {
+    for (const cmd of bootstrap.npm || []) {
       const spinner = ora(`正在执行 ${cmd}`);
       spinner.start();
       await execWait(cmd);
@@ -27,7 +28,7 @@ export default async (type: 'local' | 'remote', current: string): Promise<any> =
     }
 
     // 执行 git 命令，例如 初始化
-    for (const cmd of bootstrap.git) {
+    for (const cmd of bootstrap.git || []) {
       const spinner = ora(`正在执行 ${cmd}`);
       spinner.start();
       await execWait(cmd);
@@ -35,7 +36,7 @@ export default async (type: 'local' | 'remote', current: string): Promise<any> =
     }
 
     // 用编辑器(vscode)打开
-    for (const cmd of bootstrap.open) {
+    for (const cmd of bootstrap.open || []) {
       const spinner = ora(`正在执行 ${cmd}`);
       spinner.start();
       await execWait(cmd);

@@ -14,7 +14,8 @@
     "outDir": "lib",
     "strict": true,
     "moduleResolution": "node",
-    "declaration": true,
+    "allowJs": true,
+    // "declaration": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"], // src 目录别名

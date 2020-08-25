@@ -9,7 +9,7 @@
     "declaration": true,
     "baseUrl": ".",
     "paths": {
-      "@jsany/*": ["./packages/*"]
+      "@jsany/shared-utils": ["./packages/shared-utils/src/index"]
     },
     "pretty": true,
     "esModuleInterop": true,

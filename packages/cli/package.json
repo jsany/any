@@ -17,9 +17,9 @@
   "bin": {
     "any-cli": "bin/index.js"
   },
-  "files": ["lib", ".anyclirc.json", "templates"],
+  "files": ["lib", "bin", "scripts", ".anyclirc.json", "templates"],
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "postinstall": "node scripts/postinstall.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.10.5",

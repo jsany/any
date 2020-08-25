@@ -14,7 +14,7 @@ interface ICLIProps {
  */
 export async function CLI(lifecycle: ICLIProps) {
   const { beforeParse, afterParse } = lifecycle;
-  const cli = cac(pkg.name);
+  const cli = cac(Object.keys(pkg.bin)[0] || pkg.name);
   beforeParse && (await beforeParse(cli));
   cli.parse(process.argv);
   afterParse && (await afterParse(cli));

@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "father-build",
+    "build:2md": "PACKAGE=2md father-build",
     "build:cli": "PACKAGE=cli father-build",
     "build:utils": "PACKAGE=shared-utils father-build",
     "clean": "lerna clean && rimraf node_modules yarn.lock",

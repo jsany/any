@@ -14,7 +14,7 @@
     "outDir": "lib",
     "strict": true,
     "moduleResolution": "node",
-    "declaration": true,
+    // "declaration": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"], // src 目录别名
@@ -27,5 +27,6 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true
   },
+  "include": ["src"],
   "exclude": ["node_modules", "**/test/*", "**/*.spec.ts", "lib", "es", "dist"]
 }

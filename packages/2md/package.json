@@ -14,12 +14,25 @@
   "license": "MIT",
   "author": "Mr-jiangzhiguo <jiangzhiguo2010@qq.com>",
   "main": "lib/index.js",
+  "bin": {
+    "2md": "bin/index.js"
+  },
   "files": ["lib"],
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@jsany/shared-utils": "^1.0.0"
+    "@babel/runtime": "^7.11.2",
+    "@jsany/shared-utils": "^1.0.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "minimist": "^1.2.5",
+    "through2": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/gulp": "^4.0.6",
+    "@types/gulp-concat": "^0.0.32",
+    "@types/through2": "^2.0.36"
   },
   "publishConfig": {
     "access": "public"

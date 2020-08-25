@@ -1,4 +1,4 @@
-import anycliConfig from '@~/.anyclirc.json';
+const { anycliConfig } = require('@~/scripts/getConfig');
 
 export const getCommonCreateQuestions = (projectName: string) => [
   {
@@ -60,6 +60,7 @@ export const templateLocalQuestions = [
     name: 'templateRepo',
     message: '请选择本地模版',
     type: 'select',
+    // @ts-ignore
     choices: anycliConfig.localTemplates,
     initial: 0,
     required: true
@@ -71,6 +72,7 @@ export const templateRemoteQuestions = [
     name: 'templateRepo',
     message: '请选择远程模版',
     type: 'select',
+    // @ts-ignore
     choices: anycliConfig.remoteTemplates,
     initial: 0,
     required: true
