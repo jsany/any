@@ -13,5 +13,7 @@ export const safeEval = (returnCode: string, vars: TAnyObject, expression?: stri
     prev += `const ${key} = ${obj2json(value)};`;
     return prev;
   }, '');
-  return new Function(`"use strict";${varsStr};${expression};return (${returnCode});`)();
+  return new Function(
+    `"use strict";${varsStr};${expression ? expression : ''};return (${returnCode});`
+  )();
 };
