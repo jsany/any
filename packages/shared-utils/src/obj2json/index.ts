@@ -3,6 +3,7 @@ import { TAnyObject } from '../types';
 /**
  * 对象转字符串,保留 undefined,NaN,Infinity,-Infinity,function,symbol
  * @param obj
+ * @notice 该方法不可逆,即不能 JSON.parse
  */
 export const obj2json = (obj: TAnyObject): string => {
   try {
