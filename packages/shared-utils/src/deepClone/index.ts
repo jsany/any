@@ -5,7 +5,7 @@ import { TAnyObject } from '../types/index';
 export type TTarget = TAnyObject;
 export type TDeepClone = (target: TTarget) => TTarget;
 /**
- * @description 深拷贝，未考虑循环引用
+ * @description 深拷贝，考虑循环引用
  * @param {(object|array)} target - 要深拷贝的目标
  * @returns {(object|array)} - 返回 深拷贝
  */
@@ -20,14 +20,14 @@ export const deepClone: TDeepClone = (target) => {
   if (!limitTypes.includes(dataType))
     throw new BaseError('params invalid: it must one of ["Object, "Array]');
 
-  // 统计递归次数
-  let count = 0;
-  const _clone = (originObj: TTarget): TTarget => {
-    // 防止 循环引用，引起爆栈
-    if (count > 5000) return originObj;
-    count++;
-    const newObj: TTarget = getRawType(originObj) === 'Array' ? [] : {};
+  const wm = new WeakMap();
 
+  const _clone = (originObj: TTarget): TTarget => {
+    const existObj = wm.get(originObj);
+    if (existObj) return existObj;
+
+    const newObj: TTarget = getRawType(originObj) === 'Array' ? [] : {};
+    wm.set(originObj, newObj);
     return Object.entries(originObj).reduce((prve, next) => {
       const [key, value] = next;
       const originType = isFunction(value) ? 'Function' : getRawType(value);
@@ -54,6 +54,5 @@ export const deepClone: TDeepClone = (target) => {
     }, newObj);
   };
   const duplicate = _clone(target);
-  // console.log(count);
   return duplicate;
 };
